@@ -1,0 +1,37 @@
+<%= form_for(@character) do |f| %>
+  <% if @character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@character.errors.count, "error") %> <%= t('.prohibited_this _character_being_saved') %></h2>
+
+      <ul>
+      <% @character.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t('.char_name') %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label t('.char_parent') %><br />
+    <%= f.select(:parent, Character.all.collect {|p| [p.name, p.id]}, {:prompt => t('.select_parent_char'), :selected => @character.character_id}) %>
+  </div>
+  <div class="field">
+    <%= f.label t('.char_script') %><br />
+    <%= f.select(:script, Script.all.collect {|p| [p.name, p.id]}, {:prompt => t('.select_script'), :selected => @character.script_id}) %>
+  </div>
+  <div class="field">
+    <%= f.label t('.char_glyphs') %><br />
+    <%= f.select(:glyphs, Glyph.all.collect {|p| [p.image.html_safe, p.id]}, {:selected => @character.glyphs.map { |x| x.id}},{:multiple => true, :size => 2, :title => t('.select_glyph') }) %>
+  </div>
+  <div class="field">
+    <%= f.label t('.char_sound') %><br />
+    <%= f.select(:sounds, Sound.all.collect {|p| [ p.symbol.html_safe, p.id]}, { :selected => @character.sounds.map {|x| x.id}}, {:multiple => true, :size => 2, :title => t('.select_sound') } ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,370 @@
+--- 
+en: 
+  number: 
+    format: 
+      separator: .
+      precision: 3
+      delimiter: ","
+      strip_insignificant_zeros: false
+      significant: false
+    human: 
+      format: 
+        precision: 3
+        delimiter: ""
+        strip_insignificant_zeros: true
+        significant: true
+      storage_units: 
+        format: "%n %u"
+        units: 
+          kb: KB
+          tb: TB
+          gb: GB
+          byte: 
+            one: Byte
+            other: Bytes
+          mb: MB
+      decimal_units: 
+        format: "%n %u"
+        units: 
+          trillion: Trillion
+          quadrillion: Quadrillion
+          billion: Billion
+          million: Million
+          unit: ""
+          thousand: Thousand
+    percentage: 
+      format: 
+        delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
+    currency: 
+      format: 
+        format: "%u%n"
+        unit: "\xC2\xA3"
+        separator: .
+        precision: 2
+        delimiter: ","
+        strip_insignificant_zeros: false
+        significant: false
+  activerecord: 
+    models:
+        character: character
+        glyph: glyph
+        script: script
+        sound: sound
+    errors: 
+      messages: 
+        record_invalid: "Validation failed: %{errors}"
+        greater_than_or_equal_to: must be greater than or equal to %{count}
+        confirmation: doesn't match confirmation
+        less_than_or_equal_to: must be less than or equal to %{count}
+        blank: can't be blank
+        not_an_integer: must be an integer
+        exclusion: is reserved
+        invalid: is invalid
+        odd: must be odd
+        empty: can't be empty
+        too_short: &id002 
+          one: is too short (minimum is 1 character)
+          other: is too short (minimum is %{count} characters)
+        wrong_length: &id001 
+          one: is the wrong length (should be 1 character)
+          other: is the wrong length (should be %{count} characters)
+        even: must be even
+        less_than: must be less than %{count}
+        greater_than: must be greater than %{count}
+        equal_to: must be equal to %{count}
+        taken: has already been taken
+        accepted: must be accepted
+        too_long: &id003 
+          one: is too long (maximum is 1 character)
+          other: is too long (maximum is %{count} characters)
+        inclusion: is not included in the list
+        not_a_number: is not a number
+      full_messages: 
+        format: "%{attribute} %{message}"
+      template: 
+        body: "There were problems with the following fields:"
+        header: 
+          one: 1 error prohibited this %{model} from being saved
+          other: "%{count} errors prohibited this %{model} from being saved"
+  characters: 
+    new: 
+      title: New Character
+      new_char: New Character
+      back_index: Back to Index
+      glyph: Glyph
+      sound_value: Sound Value
+    index: 
+      create_new_character: Create a New Character
+      index: 
+        title: Characters
+    characters:
+      script: Script
+      name: Name
+      parent: Parent
+      view_character: "View %{name}"
+      edit_character: "Edit %{name}"
+      delete_character: "Delete %{name}"
+    form: 
+      prohibited_this _character_being_saved: "prohibited this character from being saved:"
+      select_parent_char: Select Parent Character
+      select_script: Select Script
+      select_glyph: Select Glyph(s)
+      select_sound: Select Sound(s)
+      char_name: Name
+      char_parent: Parent Character
+      char_script: Script
+      char_glyphs: Glyph(s)
+      char_sound: Sound Value(s)
+    edit: 
+      char_edit: "Edit %{name}"
+      back_index: Back to Index
+      char_show: Show the Character
+    show: 
+      back_index: Back to Index
+      edit_char: "Edit %{name}"
+      view_tree: "View %{name}'s tree"
+      script: Script
+      parent: Parent
+      glyphs: Glyph(s)
+      sound_values: Soundvalue(s)
+    tree: 
+      char_tree: "%{name}'s Tree"
+      back_char: Back to Character
+  errors: 
+    messages: 
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      confirmation: doesn't match confirmation
+      not_an_integer: must be an integer
+      blank: can't be blank
+      invalid: is invalid
+      exclusion: is reserved
+      odd: must be odd
+      even: must be even
+      wrong_length: *id001
+      too_short: *id002
+      empty: can't be empty
+      less_than: must be less than %{count}
+      equal_to: must be equal to %{count}
+      greater_than: must be greater than %{count}
+      too_long: *id003
+      accepted: must be accepted
+      not_a_number: is not a number
+      inclusion: is not included in the list
+    format: "%{attribute} %{message}"
+  time: 
+    am: am
+    formats: 
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B, %Y %H:%M"
+    pm: pm
+  date: 
+    month_names: 
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order: 
+    - :day
+    - :month
+    - :year
+    abbr_day_names: 
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    formats: 
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B, %Y"
+    day_names: 
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    abbr_month_names: 
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+  support: 
+    array: 
+      last_word_connector: ", and "
+      words_connector: ", "
+      two_words_connector: " and "
+    select: 
+      prompt: Please select
+  helpers: 
+    submit: 
+      submit: Save %{model}
+      create: Create %{model}
+      update: Update %{model}
+    select: 
+      prompt: Please select
+  datetime: 
+    prompts: 
+      minute: Minute
+      second: Seconds
+      month: Month
+      hour: Hour
+      day: Day
+      year: Year
+    distance_in_words: 
+      less_than_x_minutes: 
+        one: less than a minute
+        other: less than %{count} minutes
+      almost_x_years: 
+        one: almost 1 year
+        other: almost %{count} years
+      x_days: 
+        one: 1 day
+        other: "%{count} days"
+      x_seconds: 
+        one: 1 second
+        other: "%{count} seconds"
+      x_months: 
+        one: 1 month
+        other: "%{count} months"
+      about_x_hours: 
+        one: about 1 hour
+        other: about %{count} hours
+      x_minutes: 
+        one: 1 minute
+        other: "%{count} minutes"
+      less_than_x_seconds: 
+        one: less than 1 second
+        other: less than %{count} seconds
+      about_x_years: 
+        one: about 1 year
+        other: about %{count} years
+      about_x_months: 
+        one: about 1 month
+        other: about %{count} months
+      over_x_years: 
+        one: over 1 year
+        other: over %{count} years
+      half_a_minute: half a minute
+  layouts: 
+    footer: 
+      read_it_in: "Read it in:"
+      paint_it: "Paint it:"
+      classic_grey: Classic Grey
+      red: Red
+      green: Green
+      blue: Blue
+      footer_info: "\xA9 2011 Alphabet. Alphabet is a DWI product. All rights reserved. | Updated November, 10 2011"
+    header: 
+      sounds: Sounds
+      glyphs: Glyphs
+      scripts: Scripts
+      characters: Characters
+  glyphs: 
+    form: 
+      prohibited_this_glyph_from_being_saved: "prohibited this glyph from being saved:"
+      image: HTML Entity
+    edit: 
+      edit_glyph: "Edit %{image}"
+      back_index: Back to Index
+      show_glyph_image: "Show %{image}"
+    index: 
+      glyphs: Glyphs
+      create_a_new_glyph: Create a New Glyph
+    glyphs:
+      image: Image
+      view_image: "View %{image}"
+      edit_glyph: "Edit %{image}"
+      delete_glyph: "Delete %{image}"
+    new: 
+      new_glyph: New Glyph
+      back_index: Back to Index
+    show: 
+      back_index: Back to Index
+      edit_glyph: "Edit %{image}"
+  scripts: 
+    form: 
+      prohibited_this_script_from_being_saved: "prohibited this script from being saved:"
+      script_name: Name
+      begin_period: Begin Period
+      end_period: End Period
+    show: 
+      end_period: End Period
+      begin_period: Begin Period
+      back_index: Back to Index
+      edit_script: "Edit %{name}"
+    new: 
+      new_script: New Script
+      back_index: Back to Index
+    index: 
+      scripts: Scripts
+      create_script: Create a New Script
+    alphabet:
+        script: Script
+        name: Name
+        parent: Parent
+        view_character: "View %{name}"
+        edit_character: "Edit %{name}"
+        delete_character: "Delete %{name}"
+    scripts:
+      script_name: Name
+      script_begin_period: Begin Period
+      script_end_period: End Period
+      view_script: "View %{name}"
+      edit_script: "Edit %{name}"
+      delete_script: "Delete %{name}"
+    edit: 
+      edit_script: "Edit %{name}"
+      back_index: Back to Index
+      show_script: "Show %{name}"
+  sounds: 
+    edit: 
+      edit_sound: "Edit /%{symbol}/"
+      back_index: Back to Index
+      show_sound: "Show /%{symbol}/"
+    index: 
+      sounds: Sounds
+      create_sound: Create a New Sound
+    sounds:
+      sound_symbol: Symbol
+      sound_name: Name
+      view_sound: "View /%{symbol}/"
+      edit_sound: "Edit /%{symbol}/"
+      delete_sound: "Delete /%{symbol}/"
+    new: 
+      new_sound: New Sound
+      back_index: Back to Index
+    show: 
+      back_index: Back to Index
+      edit_sound: "Edit /%{symbol}/"
+      sound_name: Name
+    form: 
+      prohibited_this_sound_from_being_saved: "prohibited this sound from being saved:"
+      sound_name: Name
+      sound_entity: HTML Entity

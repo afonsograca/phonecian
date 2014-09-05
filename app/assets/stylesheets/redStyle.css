@@ -1,0 +1,31 @@
+header {
+  height: 80px;
+  background: url("/assets/hodno2yRed.png") repeat;
+  border-bottom: 1px solid #4F4F4F;
+  margin-bottom: 40px;
+  box-shadow: 0px 1px 7px black;
+  -moz-box-shadow: 0px 1px 7px black;
+  -webkit-box-shadow: 0px 1px 7px black; 
+}
+
+#signIn {
+	background: url("/assets/hodno2yRed.png") repeat;
+	box-shadow: 0px 1px 7px #303030;
+	-moz-box-shadow: 0px 1px 7px #303030;
+	-webkit-box-shadow: 0px 1px 7px #303030;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 0px 0px 40px;
+	color: #DDDDDD;
+}
+
+div.greyBackground {
+	background: url("/assets/hodno2yRed.png") repeat;
+	box-shadow: 0px 1px 7px #303030;
+	-moz-box-shadow: 0px 1px 7px #303030;
+	-webkit-box-shadow: 0px 1px 7px #303030;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 0px 0px 20px;
+	color: #DDDDDD;
+}

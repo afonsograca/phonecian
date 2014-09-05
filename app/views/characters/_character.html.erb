@@ -1,0 +1,4 @@
+<span><%= character.script.nil? ? '-': link_to(character.script.name, character.script) %></span>
+<span class="glyph"><%= raw character.glyphs.blank? ? '-': character.glyphs.map { |x| link_to( x.image.html_safe , x) }.join(', ') %></span>
+<span><%= link_to character.name, character %></span>
+<span><%= raw character.sounds.blank? ? '-': character.sounds.map { |x| link_to( ('/' + x.symbol + '/').html_safe , x) }.join(', ') %></span>

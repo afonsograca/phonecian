@@ -1,0 +1,26 @@
+<table class="table">
+	<tr>                 
+		<th><%= sortable '.script_name', 'name'%></th>
+		<th><%= sortable '.script_begin_period', 'beginPeriod'%></th>
+		<th><%= sortable '.script_end_period', 'endPeriod'%></th>
+		<th></th>
+		<% if user_signed_in? %>
+		<th></th>
+		<th></th>
+		<% end %>
+	</tr>
+
+	<% @scripts.each do |script| %>
+	<tr>
+		<td><%= script.name %></td>
+		<td><%= script.beginPeriod %></td>
+		<td><%= script.endPeriod %></td>
+		<td class="hidden"><%= link_to '', script, :class =>"button pictos view", :title => t('.view_script', :name => script.name) %></td>
+		<% if user_signed_in? %>
+	    <td class="hidden"><%= link_to '', edit_script_path(script), :class =>"button pictos edit", :title => t('.edit_script', :name => script.name) %></td>
+	    <td class="hidden"><%= link_to '', script, confirm: 'Are you sure?', method: :delete, :class =>"button pictos trash", :title => t('.delete_script', :name => script.name)  %></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate %>

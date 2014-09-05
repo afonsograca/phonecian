@@ -1,0 +1,14 @@
+<%= title t('.new_char') %>
+<div class="mainContainer800px greyBackground">
+	<div id="top">
+		<span class="indent40 columnOne alphabet">Script's world</span>
+		<h1 class="indent40 columnOne"><%= yield :title %></h1>
+		<div class="indent40R columnTwo">
+			<%= link_to '', characters_path, :class =>"button right pictos back", :title => t('.back_index')  %>
+		</div>
+	</div>
+	<div class="indent40">
+		<%= render 'form' %>
+	</div>
+
+</div>

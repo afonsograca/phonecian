@@ -1,0 +1,28 @@
+<%= title t('.index.title') %>
+<div class="mainContainer800px greyBackground">
+	<div id="top">
+		<span class="indent40 columnOne alphabet">Script's world</span>
+		<h1 class="indent40 columnOne"><%= yield :title  %></h1>
+		<div class="indent40R columnTwo">
+			<% if user_signed_in? %>
+			<%= link_to '', new_character_path, :class =>"button right pictos new", :title => t('.create_new_character') %>
+			<% end %>
+			<%= form_tag characters_path, :id => "characters_search", :class => 'form right', :method => 'get' do %>
+			<div id="hidden_fields">
+				<%= render 'hidden' %>
+			</div>
+			<p>
+				<%= text_field_tag :search, params[:search], :class =>"textFieldSmall " %>
+				<%= label_tag " ", nil, :class => "pictos find"%>
+			</p>
+		</div>
+	</div>
+	<div class="indent40">
+		<div id="characters">
+			<%= render 'characters' %>
+		</div>
+		<br />
+	</div>
+	<% end %>
+
+</div>

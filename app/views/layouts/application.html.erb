@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Script World - <%= content_for?(:title) ? yield(:title) : "Where All The Scripts Are" %></title>
+	<%= render 'layouts/stylesheets' %>
+</head>
+<body>
+	<%= render 'layouts/header' %>
+	<div id="content">
+		<%= yield %>		
+	</div>
+	<%= render 'layouts/footer' %>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<table class="table">
+	<tr>
+		<th><%= sortable '.image', "image" %></th>
+		<% if user_signed_in? %>
+		<th></th>
+		<th></th>
+		<% end %>
+	</tr>
+
+	<% @glyphs.each do |glyph| %>
+	<tr>
+		<td class="glyph"><%= raw glyph.image %></td>
+		<% if user_signed_in? %>
+	    <td class="hidden"><%= link_to '', edit_glyph_path(glyph), :class =>"button pictos edit", :title => (  t('.edit_glyph', :image => glyph.image) ).html_safe  %></td>
+	    <td class="hidden"><%= link_to '', glyph, confirm: 'Are you sure?', method: :delete, :class =>"button pictos trash", :title =>( t('.delete_glyph', :image => glyph.image) ).html_safe  %></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate %>

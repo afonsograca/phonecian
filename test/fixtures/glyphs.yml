@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: glyphs
+#
+#  id          :integer(4)      not null, primary key
+#  image       :string(255)
+#  beginPeriod :datetime
+#  endPeriod   :datetime
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  image: MyString
+  beginPeriod: 2011-10-06 14:10:41
+  endPeriod: 2011-10-06 14:10:41
+
+two:
+  image: MyString
+  beginPeriod: 2011-10-06 14:10:41
+  endPeriod: 2011-10-06 14:10:41

@@ -1,0 +1,24 @@
+<table class="table">
+	<tr>	
+		<th><%= sortable '.sound_symbol', 'symbol' %></th>
+		<th><%= sortable '.sound_name', 'name' %></th>
+		<th></th>
+		<% if user_signed_in? %>
+		<th></th>
+		<th></th>
+		<% end %>
+	</tr>
+
+	<% @sounds.each do |sound| %>
+	<tr>
+		<td>/<%= raw sound.symbol %>/</td>
+		<td><%= sound.name %></td>
+		<td class="hidden"><%= link_to '', sound, :class =>"button pictos view", :title => ( t('.view_sound', :symbol => sound.symbol) ).html_safe %></td>
+		<% if user_signed_in? %>
+	    <td class="hidden"><%= link_to '', edit_sound_path(sound), :class =>"button pictos edit", :title => ( t('.edit_sound', :symbol => sound.symbol) ).html_safe  %></td>
+	    <td class="hidden"><%= link_to '', sound, confirm: 'Are you sure?', method: :delete, :class =>"button pictos trash", :title =>( t('.delete_sound', :symbol => sound.symbol)).html_safe  %></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate %>

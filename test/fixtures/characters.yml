@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: characters
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  parent     :integer(4)
+#  script     :integer(4)
+#  glyph      :integer(4)
+#  soundValue :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  parent: 1
+  script: 1
+  glyph: 1
+  soundValue: 1
+
+two:
+  name: MyString
+  parent: 1
+  script: 1
+  glyph: 1
+  soundValue: 1

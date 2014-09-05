@@ -1,0 +1,53 @@
+<table class="table">
+	<h2>Script's Characters</h2>
+	<tr>
+		<th><%=  t('.glyph') %></th>
+		<th><%= sortable '.name', "name" %></th>
+		<th><%= sortable '.parent', "character_id" %></th>
+		<th><%=  t('.sound_value') %></th>
+		<th></th>
+		<% if user_signed_in? %>
+		<th></th>
+		<th></th>
+		<% end %>
+	</tr>
+	<% @alphabet.each do |character| %>
+	<tr>
+		<td class="glyph"><%= raw character.glyphs.blank? ? '-': character.glyphs.map { |x| link_to( x.image.html_safe , x) }.join(', ') %></td>
+		<td><%= character.name.nil? ? '-': link_to(character.name, character) %></td>
+		<td><%= character.parent.nil? ? '-': link_to(character.parent.name, character.parent) %></td>
+		<td><%= raw character.sounds.blank? ? '-': character.sounds.map { |x| link_to( ('/' + x.symbol + '/').html_safe , x, :class =>"soundTool") }.join(', ') %></td>
+		<td class="hidden"><%= link_to '', character, :class =>"button pictos view", :title => t('.view_character', :name => character.name) %></td>
+		<% if user_signed_in? %>
+		<td class="hidden"><%= link_to '', edit_character_path(character), :class =>"button pictos edit", :title => t('.edit_character', :name => character.name)  %></td>
+		<td class="hidden"><%= link_to '', character, confirm: 'Are you sure?', method: :delete, :class =>"button pictos trash", :title => t('.delete_character', :name => character.name)  %></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate @alphabet %>
+<script>
+	$(document).ready(function(){
+		$(".soundTool").each(function(){
+			$(this).bt({
+				ajaxPath: ["$(this).attr('href')", 'table.table'],
+
+				shrinkToFit: true,
+
+				fill: 'black', 
+				  strokeStyle: '#B7B7B7', 
+				  spikeLength: 10, 
+				  spikeGirth: 10, 
+				  padding: 8, 
+				  cornerRadius: 5, 
+				  cssStyles: {
+				    fontFamily: '"lucida grande",tahoma,verdana,arial,sans-serif', 
+				    fontSize: '11px'
+				  },
+				hoverIntentOpts: {
+				    timeout: 5000
+				  }
+			});
+		});
+	});
+</script>

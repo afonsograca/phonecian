@@ -1,0 +1,21 @@
+<%= form_for(@glyph) do |f| %>
+  <% if @glyph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@glyph.errors.count, "error") %> <%= t('.prohibited_this_glyph_from_being_saved') %></h2>
+
+      <ul>
+      <% @glyph.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t('.image') %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

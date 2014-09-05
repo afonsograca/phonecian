@@ -1,0 +1,14 @@
+<%= title(raw t('.edit_glyph', :image => @glyph.image)) %>
+<div class="mainContainer800px greyBackground">
+	<div id="top">
+		<span class="indent40 columnOne alphabet">Script's world</span>
+		<h1 class="indent40 columnOne"><%= raw yield :title %>/h1>
+		<div class="indent40R columnTwo">
+			<%= link_to '', glyphs_path, :class =>"button right pictos back", :title => t('.back_index') %>
+			<%= link_to '', @glyph, :class =>"button right pictos view", :title => ( t('.show_glyph_image', :image => @glyph.image) ).html_safe %>
+		</div>
+	</div>
+	<div class="indent40">
+		<%= render 'form' %>
+	</div>
+</div>

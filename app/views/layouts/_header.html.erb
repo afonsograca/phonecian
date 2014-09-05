@@ -1,0 +1,40 @@
+<header>
+	<div class="mainContainer800px">
+			<div id="manageSelector" class="grid1">
+				<h1 class="pictos world">Script's </h1>
+			</div>
+			<div id="buttons" class="grid2">
+				<%= link_to t('.sounds'), sounds_path, :class =>"button right pictos sound" %>
+				<%= link_to t('.glyphs'), glyphs_path, :class =>"button right pictos glyphs" %>
+				<%= link_to t('.scripts'), scripts_path, :class =>"button right pictos script" %>
+				<%= link_to t('.characters'), characters_path, :class =>"button right phoenician char" %>
+			</div>
+		<div id="logo" class="grid3 omega">
+			<% if user_signed_in? %>
+				<%= link_to t('.logout'), destroy_user_session_path, :method => :delete, :class =>"button right pictos user" %>
+			<% else %>
+				<%= link_to t('.login'), new_user_session_path, :class =>"button right pictos user" %>
+			<% end %>
+		</div>
+	</div>
+</header>
+<script>
+	$(document).ready(function(){
+		$("#authenticanteButton").live("click", function(e) {
+		                e.preventDefault();
+		                $("fieldset#signin_menu").toggle();
+		                $(".signin").toggleClass("menu-open");
+		            });
+
+		            $("fieldset#signin_menu").mouseup(function() {
+		                return false
+		            });
+		            $(document).mouseup(function(e) {
+		                if($(e.target).parent("a.signin").length==0) {
+		                    $(".signin").removeClass("menu-open");
+		                    $("fieldset#signin_menu").hide();
+		                }
+		            });            
+		
+	});
+</script>

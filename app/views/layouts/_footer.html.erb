@@ -1,0 +1,50 @@
+<footer>
+	<p>
+		<%= t '.paint_it' %>
+		<span><a id="grey"href="#"><%= t('.classic_grey') %></a></span> | <span><a id="red" href="#"><%= t('.red') %></a></span> | <span><a id="green"  href="#"><%= t('.green') %></a></span> | <span><a id="blue" href="#"><%= t('.blue') %></a></span>
+	</p>
+	<p>
+		<%= t '.read_it_in' %> <span><a id="eng" href="#">EN</a></span> | <span><a id="prt" href="#">PT</a></span> </span>
+	</p>
+	<p>
+		<%= t('.footer_info') %>
+	</p>
+</footer>
+<script>
+<!--
+$(document).ready(function () { 
+	$("#grey").click(function() {
+		$("#dynamicCSS").attr("href","/assets/greyStyle.css?body=1");
+		$.cookie("current_stylesheet","greyStyle", { expires: 365 });
+		return false;
+	})
+	$("#red").click(function() {
+		$("#dynamicCSS").attr("href","/assets/redStyle.css?body=1");
+		$.cookie("current_stylesheet","redStyle", { expires: 365 });
+		return false;
+	});
+	$("#green").click(function() {
+		$("#dynamicCSS").attr("href","/assets/greenStyle.css?body=1");
+		$.cookie("current_stylesheet","greenStyle", { expires: 365 });
+		return false;
+	});
+	$("#blue").click(function() {
+		$("#dynamicCSS").attr("href","/assets/blueStyle.css?body=1");
+		$.cookie("current_stylesheet","blueStyle", { expires: 365 });
+		return false;
+	});
+	$("#eng").click(function(){
+		$.cookie("current_language","en", { expires: 365 });
+		location.reload();
+	});
+	$("#prt").click(function(){
+		$.cookie("current_language","pt", { expires: 365 });
+		location.reload();
+	});
+	$("#mag").click(function(){
+		$.cookie("current_language","hu", { expires: 365 });
+		location.reload();
+	});
+});
+//  -->
+</script>

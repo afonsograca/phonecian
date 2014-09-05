@@ -1,0 +1,13 @@
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link id="dynamicCSS"href="/assets/<%= cookies[:current_stylesheet] %>.css?body=1" media="screen" rel="stylesheet" type="text/css">
+<%= stylesheet_link_tag    "characters" %>
+<%= stylesheet_link_tag    "scaffolds" %>
+<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "jquery.bt.min" %>
+<%= stylesheet_link_tag    "fonts/glyphs" %>
+<%= stylesheet_link_tag    "fonts/pictos_base64" %>
+<%= stylesheet_link_tag    "style" %>
+<%= csrf_meta_tags %>

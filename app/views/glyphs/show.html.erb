@@ -1,0 +1,20 @@
+<%= title(raw @glyph.image) %>
+<div class="mainContainer800px greyBackground">
+	<div id="top">
+		<span class="indent40 columnOne alphabet">Script's world</span>
+		<h1 class="indent40 columnOne"><%= raw yield :title %></h1>
+		<div class="indent40R columnTwo">
+			<%= link_to '', glyphs_path, :class =>"button right pictos back", :title => t('.back_index')  %>
+			<% if user_signed_in? %>
+			<%= link_to '', edit_glyph_path(@glyph), :class =>"button right pictos edit", :title => ( t('.edit_glyph', :image => @glyph.image) ).html_safe  %>
+			<% end %>
+		</div>
+	</div>
+	<div class="indent40">
+		<p id="notice"><%= notice %></p>
+		
+		<table class="table">
+			
+		</table>
+	</div>
+</div>

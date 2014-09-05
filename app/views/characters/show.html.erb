@@ -1,0 +1,79 @@
+<%= title @character.name %>
+
+<div class="mainContainer800px greyBackground">
+	<div id="top">
+		<span class="indent40 columnOne alphabet">Script's world</span>
+		<h1 class="indent40 columnOne"><%= yield :title %></h1>
+		<div class="indent40R columnTwo">
+			<%= link_to '', characters_path, :class =>"button right pictos back", :title => t('.back_index')  %>
+			<% if user_signed_in? %>
+			<%= link_to '', edit_character_path(@character), :class =>"button right pictos edit", :title => t('.edit_char', :name => @character.name)  %>
+			<% end %>
+			<%= link_to '', tree_character_path(@character), :class =>"button right pictos view", :title => t('.view_tree', :name => @character.name) %>
+
+		</div>
+	</div>
+	<div class="indent40">
+		<p id="notice"><%= notice %></p>
+		<table class="table">
+			<tr>
+				<th>
+					<%= t('.script') %>
+				</th>
+				<td>
+					<%= @character.script.nil? ? '-': link_to(@character.script.name, @character.script) %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<%= t('.parent') %>
+				</th>
+				<td>
+					<%= @character.parent.nil? ? '-': link_to(@character.parent.name, @character.parent) %>
+					<i><%=  @character.parent.nil? ? '': link_to(' (' + @character.parent.script.name + ')', @character.parent.script)  %></i>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<%= t('.glyphs') %>
+				</th>
+				<td class="glyph">
+					<%= raw @character.glyphs.blank? ? '-': @character.glyphs.map { |x| link_to( x.image.html_safe , x) }.join(', ') %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<%= t('.sound_values') %>
+				</th>
+				<td>
+					<%= raw @character.sounds.blank? ? '-': @character.sounds.map { |x| link_to( ('/' + x.symbol + '/').html_safe , x, :class =>"soundTool") }.join(', ') %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<script>
+	$(document).ready(function(){
+		$(".soundTool").each(function(){
+			$(this).bt({
+				ajaxPath: ["$(this).attr('href')", 'table.table'],
+
+				shrinkToFit: true,
+
+				fill: 'black', 
+				  strokeStyle: '#B7B7B7', 
+				  spikeLength: 10, 
+				  spikeGirth: 10, 
+				  padding: 8, 
+				  cornerRadius: 5, 
+				  cssStyles: {
+				    fontFamily: '"lucida grande",tahoma,verdana,arial,sans-serif', 
+				    fontSize: '11px'
+				  },
+				hoverIntentOpts: {
+				    timeout: 5000
+				  }
+			});
+		});
+	});
+</script>

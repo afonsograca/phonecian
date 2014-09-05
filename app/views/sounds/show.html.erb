@@ -1,0 +1,44 @@
+<%= title(raw "/" + @sound.symbol + "/") %>
+<div class="mainContainer800px greyBackground">
+	<div id="top">
+		<span class="indent40 columnOne alphabet">Script's world</span>
+		<h1 class="indent40 columnOne"><%= raw yield :title %></h1>
+		<div class="indent40R columnTwo">
+			<%= link_to '', sounds_path, :class =>"button right pictos back", :title => t('.back_index')  %>
+			<% if user_signed_in? %>
+			<%= link_to '', edit_sound_path(@sound), :class =>"button right pictos edit", :title => ( t('.edit_sound', :symbol => @sound.symbol) ).html_safe  %>
+			<% end %>
+		</div>
+	</div>
+	<div class="indent40">
+		<p id="notice"><%= notice %></p>
+
+		<table class="table">
+			<tr>
+				<th>
+					<%= t('.sound_name') %>
+				</th>
+				<th>
+					<%= t('.sound_website') %>
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<%= @sound.name %>
+				</td>
+				
+				<td>
+					<% if @sound.website.nil? %>
+					-
+					<% else %>
+					<audio controls="controls" autoplay="autoplay">
+					  <source src=<%= @sound.website %> type="audio/ogg" />
+					  <source src="song.mp3" type="audio/mp3" />
+					  Your browser does not support the audio element.
+					</audio>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

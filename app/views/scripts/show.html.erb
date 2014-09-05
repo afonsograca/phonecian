@@ -1,0 +1,27 @@
+<%= title @script.name %>
+<div class="mainContainer800px greyBackground">
+	<div id="top">
+		<span class="indent40 columnOne alphabet">Script's world</span>
+		<h1 class="indent40 columnOne"><%=yield :title %></h1>
+		<span class="indent40 columnOne alphabet"><%= @script.beginPeriod %> -> <%= @script.endPeriod %></span>
+		<div class="indent40R columnTwo" style="margin-top:-22px;">
+			<%= link_to '', scripts_path, :class =>"button right pictos back", :title => t('.back_index')  %>
+			<% if user_signed_in? %>
+			<%= link_to '', edit_script_path(@script), :class =>"button right pictos edit", :title => t('.edit_script', :name => @script.name)  %>
+			<% end %>
+			<%= form_tag @script, :id => "alphabet_search", :class => 'form right', :method => 'get' do %>
+			<div id="hidden_fields">
+				<%= render 'hidden' %>
+			</div>
+			<p>
+				<%= text_field_tag :search, params[:search], :class =>"textFieldSmall " %>
+				<%= label_tag " ", nil, :class => "pictos find"%>
+			</p>
+		</div>
+	</div>
+		<div class="indent40">
+			<p id="notice"><%= notice %></p>
+			<div id="alphabet"><%= render 'alphabet' %></div>
+		</div>
+		<% end %>
+	</div>
